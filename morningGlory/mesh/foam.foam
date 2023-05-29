@@ -1,0 +1,6 @@
+Commands to be executed in this case for the mesh:
+
+- surfaceFeatureExtract
+- blockMesh
+- snappyHexMesh -overwrite
+

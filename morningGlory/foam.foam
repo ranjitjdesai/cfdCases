@@ -1,0 +1,21 @@
+- got to mesh folder, run the commands listed in "foam.foam" to generate mesh
+- copy "mesh/constan/polyMesh" to "morningGlory/constant"
+- copy and rename 0.orig to 0
+- edit system/decomposeParDict for number of subdomains/processor cores (for parallel run) 
+
+Run Following Commands:
+
+- setFields
+
+For Serial Run:
+- interIsoFoam
+
+For Parallel Run:
+
+- decomposePar
+
+- mpirun -np 12 interIsoFoam -parallel > log.interIsoFoam &
+
+- tail -f log.interIsoFoam
+
+----------------------------------------------------------------------
