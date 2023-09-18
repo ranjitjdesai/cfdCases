@@ -1,0 +1,26 @@
+labyWeir Case Contains:
+- Time Varying Flow Rate at Inlet in "U"
+- snappyHexMeshDict is modified to prioritize orthogonality.
+- setFieldsDict uses .stl to initialize water volume fraction and U
+- blockMeshDict uses easy inputs (Xmin-Xmax)(Ymin-Ymax)(Zmin-Zmax) & Cell Divisions in X Y Z at start of file
+
+Run Commands:
+
+For turning off Hyper Threading while in Ubuntu, use:
+- echo off | sudo tee /sys/devices/system/cpu/smt/control
+
+Preprocess:
+- surfaceFeatureExtract
+- blockMesh
+- snappyHexMesh -overwrite
+
+For Parallel:
+- decomposePar -force
+- mpirun -np 2 interIsoFoam -parallel > log.interIsoFoam &
+
+check last few lines from solver log:
+- tail ./log.interIsoFoam 
+ 
+to print log on console:
+- tail -f ./log.interIsoFoam
+

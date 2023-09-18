@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2206                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      alpha.water;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+#include        "include/initialConditions"
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    inlet
+    {
+        type            variableHeightFlowRate;  //acts as open channel BC with inlet specifics in U
+        lowerBound      0;  //minimum volume fraction 
+        upperBound      1;  //maximum volume fraction
+        value           uniform 0;
+    }
+
+    outlet
+    {
+        type            zeroGradient; //this is like free flow outlet.
+        // Alternatives:
+        // variableHeightFlowRate (as specified in inlet)
+        
+
+
+    }
+
+    bed
+    {
+        type            zeroGradient;
+    }
+    weir
+    {
+        type            zeroGradient;
+    }
+
+    top
+    {
+        type            inletOutlet; //air can come & go
+        inletValue      uniform 0; //need to specify inletValue for this BC
+        value           uniform 0;
+    }
+
+    allBoundary
+    {
+        type            zeroGradient;
+    }
+}
+
+// ************************************************************************* //
