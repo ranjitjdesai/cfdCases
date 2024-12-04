@@ -1,3 +1,4 @@
-- Every case has instructions for running commands in file "foam.foam".
-- The models are not calliberated & may not represent physical reality.
-- The responsibility of validating & veryfying the models rests with the user.
+- Every case has instructions for running commands in the "foam.foam" file.
+- The models are not calibrated & may not represent physical reality.
+- The responsibility of validating & verifying the models rests with the user.
+- Please use the models for educational/learning purposes only.
