@@ -39,13 +39,6 @@ boundaryField
         value           uniform (0 0 0);
     }
     
-    /*ORIGINAL
-    inlet
-    {
-        type   flowRateInletVelocity;
-        volumetricFlowRate constant 8.7;//input flow here
-    }
-    */
    
     walls
     {
@@ -54,26 +47,7 @@ boundaryField
     
     outlet
     {
-    /*    type            variableHeightFlowRateInletVelocity;
-        flowRate        table;
-        flowRateCoeffs
-        {
-            values          
-            4
-            (
-            (0 0)
-            (13 0)
-            (15 -8.7)
-            (100 -8.7)
-            );
-        }
-        alpha           alpha.water;
-        value           uniform (0 0 0);
-    */    
-        //ORIGINAL
         type            zeroGradient;
-        //type   flowRateOutletVelocity;
-        //volumetricFlowRate constant 8.7;
     }
 
     top
