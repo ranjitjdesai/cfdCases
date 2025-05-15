@@ -1,0 +1,19 @@
+
+COMMANDS TO RUN:
+
+setFields
+
+mapFields -parallelSource -sourceTime 'latestTime' ../Case-1.3 -consistent
+
+mapFields -parallelSource -sourceTime 50 ../Case-1.1 -consistent
+
+decomposePar
+
+mpirun -np 12 interIsoFoam -parallel > log.interIsoFoam &
+
+tail -f log.interIsoFoam
+
+----------------------------------------------------------------------
+CASE DETAILS:
+Full Length 2.5x2.5 channel syphon, outfall and inlet tank
+Q=12.59
